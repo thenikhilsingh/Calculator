@@ -1,6 +1,6 @@
-let num1;
-let num2;
-let operator;
+let arg1 = 0;
+let arg2 = 0;
+let operand = 0;
 
 function add(num1, num2) {
   return num1 + num2;
@@ -20,20 +20,17 @@ function divide(num1, num2) {
 
 function operate(num1, operator, num2) {
   if (operator == "+") {
-    return add(num1, num2);
+    return (displaybox.innerHTML = add(num1, num2));
   } else if (operator == "-") {
-    return subtract(num1, num2);
+    return (displaybox.innerHTML = subtract(num1, num2));
   } else if (operator == "*") {
-    return multiply(num1, num2);
+    return (displaybox.innerHTML = multiply(num1, num2));
   } else if (operator == "/") {
-    return divide(num1, num2);
+    return (displaybox.innerHTML = divide(num1, num2));
   } else {
-    alert("enter a valid operator");
+    return (displaybox.innerHTML = "enter a valid input");
   }
 }
-
-
-
 
 let displaybox = document.querySelector(".displaybox");
 let output = "";
@@ -44,17 +41,18 @@ let output = "";
 // let signAddMin=document.querySelector(".signAddMin")
 // signAddMin.addEventListener("click")
 
-let percentage=document.querySelector(".percentage")
-percentage.addEventListener("click",()=>{
-    output += "%";
-    displaybox.innerHTML = output;
-})
+let percentage = document.querySelector(".percentage");
+percentage.addEventListener("click", () => {
+  output += "%";
+  displaybox.innerHTML = output;
+});
 
-let division=document.querySelector(".division")
-division.addEventListener("click",()=>{
-    output += "/";
-    displaybox.innerHTML = output;
-})
+let division = document.querySelector(".division");
+division.addEventListener("click", () => {
+  operand = "/";
+  output += "/";
+  displaybox.innerHTML = output;
+});
 
 let seven = document.querySelector(".vii");
 seven.addEventListener("click", () => {
@@ -74,11 +72,12 @@ nine.addEventListener("click", () => {
   displaybox.innerHTML = output;
 });
 
-let multiplication=document.querySelector(".multiplication")
-multiplication.addEventListener("click",()=>{
-    output += "*";
-    displaybox.innerHTML = output;
-})
+let multiplication = document.querySelector(".multiplication");
+multiplication.addEventListener("click", () => {
+  operand = "*";
+  output += "*";
+  displaybox.innerHTML = output;
+});
 
 let four = document.querySelector(".iv");
 four.addEventListener("click", () => {
@@ -98,11 +97,12 @@ six.addEventListener("click", () => {
   displaybox.innerHTML = output;
 });
 
-let subtraction=document.querySelector(".subtraction")
-subtraction.addEventListener("click",()=>{
-    output += "-";
-    displaybox.innerHTML = output;
-})
+let subtraction = document.querySelector(".subtraction");
+subtraction.addEventListener("click", () => {
+  operand = "-";
+  output += "-";
+  displaybox.innerHTML = output;
+});
 
 let one = document.querySelector(".i");
 one.addEventListener("click", () => {
@@ -122,11 +122,12 @@ three.addEventListener("click", () => {
   displaybox.innerHTML = output;
 });
 
-let addition=document.querySelector(".addition")
-addition.addEventListener("click",()=>{
-    output += "+";
-    displaybox.innerHTML = output;
-})
+let addition = document.querySelector(".addition");
+addition.addEventListener("click", () => {
+  operand = "+";
+  output += "+";
+  displaybox.innerHTML = output;
+});
 
 // let calc=document.querySelector(".calc")
 // calc.addEventListener("click")
@@ -137,14 +138,17 @@ zero.addEventListener("click", () => {
   displaybox.innerHTML = output;
 });
 
-let decimal=document.querySelector(".decimal")
-decimal.addEventListener("click",()=>{
-    output += ".";
-    displaybox.innerHTML = output;
-})
+let decimal = document.querySelector(".decimal");
+decimal.addEventListener("click", () => {
+  output += ".";
+  displaybox.innerHTML = output;
+});
 
-let isEqualTo=document.querySelector(".isEqualTo")
-isEqualTo.addEventListener("click",()=>{
-    output += "=";
-    displaybox.innerHTML = output;
-})
+let isEqualTo = document.querySelector(".isEqualTo");
+isEqualTo.addEventListener("click", () => {
+  let args = output.split(operand);
+  arg1 = parseInt(args[0]);
+  arg2 = parseInt(args[1]);
+  operator = operand;
+  operate(arg1, operator, arg2);
+});
