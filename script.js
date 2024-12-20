@@ -18,6 +18,10 @@ function divide(num1, num2) {
   return num1 / num2;
 }
 
+function remainder(num1, num2) {
+  return num1 % num2;
+}
+
 function operate(num1, operator, num2) {
   if (operator == "+") {
     return (displaybox.innerHTML = add(num1, num2));
@@ -27,22 +31,29 @@ function operate(num1, operator, num2) {
     return (displaybox.innerHTML = multiply(num1, num2));
   } else if (operator == "/") {
     return (displaybox.innerHTML = divide(num1, num2));
+  } else if (operator == "%") {
+    return (displaybox.innerHTML = remainder(num1, num2));
   } else {
     return (displaybox.innerHTML = "enter a valid input");
   }
 }
 
 let displaybox = document.querySelector(".displaybox");
+displaybox.innerHTML = "0";
 let output = "";
 
-// let ac=document.querySelector(".ac")
-// ac.addEventListener("click")
+let ac = document.querySelector(".ac");
+ac.addEventListener("click", () => {
+  output = output.slice(0, -1);
+  displaybox.innerHTML = output;
+});
 
 // let signAddMin=document.querySelector(".signAddMin")
 // signAddMin.addEventListener("click")
 
-let percentage = document.querySelector(".percentage");
-percentage.addEventListener("click", () => {
+let modulus = document.querySelector(".modulus");
+modulus.addEventListener("click", () => {
+  operand = "%";
   output += "%";
   displaybox.innerHTML = output;
 });
@@ -149,6 +160,5 @@ isEqualTo.addEventListener("click", () => {
   let args = output.split(operand);
   arg1 = parseInt(args[0]);
   arg2 = parseInt(args[1]);
-  operator = operand;
-  operate(arg1, operator, arg2);
+  operate(arg1, operand, arg2);
 });
