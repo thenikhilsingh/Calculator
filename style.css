@@ -55,6 +55,11 @@ body {
   align-items: end;
 }
 
+svg {
+  height: 25px;
+  fill: white;
+}
+
 .btn {
   height: 60px;
   width: 60px;
