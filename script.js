@@ -59,8 +59,17 @@ ac.addEventListener("click", () => {
   }
 });
 
-// let signAddMin=document.querySelector(".signAddMin")
-// signAddMin.addEventListener("click")
+let signAddMin = document.querySelector(".signAddMin");
+let signAddMinflag = false;
+signAddMin.addEventListener("click", () => {
+  if (signAddMinflag == false) {
+    signAddMinflag = true;
+    displaybox.innerHTML = -output;
+  } else {
+    signAddMinflag = false;
+    displaybox.innerHTML = output;
+  }
+});
 
 let modulus = document.querySelector(".modulus");
 modulus.addEventListener("click", () => {
