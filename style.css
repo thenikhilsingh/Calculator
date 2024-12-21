@@ -86,15 +86,27 @@ svg {
   align-items: center;
 }
 
+.btn:active {
+  background-color: #727272;
+}
+
 .btnGrey {
   background-color: rgb(92, 92, 95);
+}
+
+.btnGrey:active {
+  background-color: #8c8c8c;
 }
 
 .btnYellow {
   background-color: rgb(255, 159, 10);
 }
 
-.darklightMode img{
-height: 16px;
-width: 16px;
+.btnYellow:active {
+  background-color: #fcc78d;
+}
+
+.darklightMode img {
+  height: 16px;
+  width: 16px;
 }
