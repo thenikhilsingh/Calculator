@@ -40,6 +40,8 @@ function operate(num1, operator, num2) {
   }
 }
 
+let displayAfter = document.querySelector(".displayAfter");
+displayAfter.innerHTML = "";
 let displaybox = document.querySelector(".displaybox");
 displaybox.innerHTML = "0";
 let output = "";
@@ -49,10 +51,11 @@ let acflag = false;
 ac.addEventListener("click", () => {
   if (acflag) {
     output = "";
-    displaybox.innerHTML = output;
+    displaybox.innerHTML = 0;
+    displayAfter.innerHTML = "";
   } else {
     output = output.slice(0, -1);
-    displaybox.innerHTML = output;
+    displaybox.innerHTML = 0;
   }
 });
 
@@ -242,4 +245,5 @@ isEqualTo.addEventListener("click", () => {
   arg1 = parseInt(args[0]);
   arg2 = parseInt(args[1]);
   operate(arg1, operand, arg2);
+  displayAfter.innerHTML = output;
 });
