@@ -2,6 +2,7 @@ let arg1 = 0;
 let arg2 = 0;
 let operand = 0;
 let bksp = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>backspace-outline</title><path d="M19,15.59L17.59,17L14,13.41L10.41,17L9,15.59L12.59,12L9,8.41L10.41,7L14,10.59L17.59,7L19,8.41L15.41,12L19,15.59M22,3A2,2 0 0,1 24,5V19A2,2 0 0,1 22,21H7C6.31,21 5.77,20.64 5.41,20.11L0,12L5.41,3.88C5.77,3.35 6.31,3 7,3H22M22,5H7L2.28,12L7,19H22V5Z" /></svg>`;
+let opflag = false;
 
 function add(num1, num2) {
   return num1 + num2;
@@ -60,20 +61,34 @@ ac.addEventListener("click", () => {
 
 let modulus = document.querySelector(".modulus");
 modulus.addEventListener("click", () => {
-  acflag = false;
-  ac.innerHTML = bksp;
-  operand = "%";
-  output += "%";
-  displaybox.innerHTML = output;
+  if (opflag) {
+    acflag = false;
+    ac.innerHTML = bksp;
+    displaybox.innerHTML = output;
+  } else {
+    opflag = true;
+    acflag = false;
+    ac.innerHTML = bksp;
+    operand = "%";
+    output += "%";
+    displaybox.innerHTML = output;
+  }
 });
 
 let division = document.querySelector(".division");
 division.addEventListener("click", () => {
-  acflag = false;
-  ac.innerHTML = bksp;
-  operand = "/";
-  output += "/";
-  displaybox.innerHTML = output;
+  if (opflag) {
+    acflag = false;
+    ac.innerHTML = bksp;
+    displaybox.innerHTML = output;
+  } else {
+    opflag = true;
+    acflag = false;
+    ac.innerHTML = bksp;
+    operand = "/";
+    output += "/";
+    displaybox.innerHTML = output;
+  }
 });
 
 let seven = document.querySelector(".vii");
@@ -102,11 +117,18 @@ nine.addEventListener("click", () => {
 
 let multiplication = document.querySelector(".multiplication");
 multiplication.addEventListener("click", () => {
-  acflag = false;
-  ac.innerHTML = bksp;
-  operand = "*";
-  output += "*";
-  displaybox.innerHTML = output;
+  if (opflag) {
+    acflag = false;
+    ac.innerHTML = bksp;
+    displaybox.innerHTML = output;
+  } else {
+    opflag = true;
+    acflag = false;
+    ac.innerHTML = bksp;
+    operand = "*";
+    output += "*";
+    displaybox.innerHTML = output;
+  }
 });
 
 let four = document.querySelector(".iv");
@@ -135,11 +157,18 @@ six.addEventListener("click", () => {
 
 let subtraction = document.querySelector(".subtraction");
 subtraction.addEventListener("click", () => {
-  acflag = false;
-  ac.innerHTML = bksp;
-  operand = "-";
-  output += "-";
-  displaybox.innerHTML = output;
+  if (opflag) {
+    acflag = false;
+    ac.innerHTML = bksp;
+    displaybox.innerHTML = output;
+  } else {
+    opflag = true;
+    acflag = false;
+    ac.innerHTML = bksp;
+    operand = "-";
+    output += "-";
+    displaybox.innerHTML = output;
+  }
 });
 
 let one = document.querySelector(".i");
@@ -168,11 +197,16 @@ three.addEventListener("click", () => {
 
 let addition = document.querySelector(".addition");
 addition.addEventListener("click", () => {
-  acflag = false;
-  ac.innerHTML = bksp;
-  operand = "+";
-  output += "+";
-  displaybox.innerHTML = output;
+  if (opflag) {
+    ac.innerHTML = bksp;
+    displaybox.innerHTML = output;
+  } else {
+    opflag = true;
+    ac.innerHTML = bksp;
+    operand = "+";
+    output += "+";
+    displaybox.innerHTML = output;
+  }
 });
 
 // let calc=document.querySelector(".calc")
@@ -188,10 +222,16 @@ zero.addEventListener("click", () => {
 
 let decimal = document.querySelector(".decimal");
 decimal.addEventListener("click", () => {
-  acflag = false;
-  ac.innerHTML = bksp;
-  output += ".";
-  displaybox.innerHTML = output;
+  if (opflag) {
+    ac.innerHTML = bksp;
+    displaybox.innerHTML = output;
+  } else {
+    opflag = true;
+    acflag = false;
+    ac.innerHTML = bksp;
+    output += ".";
+    displaybox.innerHTML = output;
+  }
 });
 
 let isEqualTo = document.querySelector(".isEqualTo");
