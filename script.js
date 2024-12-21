@@ -55,7 +55,7 @@ ac.addEventListener("click", () => {
     displayAfter.innerHTML = "";
   } else {
     output = output.slice(0, -1);
-    displaybox.innerHTML = 0;
+    displaybox.innerHTML = output;
   }
 });
 
@@ -212,8 +212,19 @@ addition.addEventListener("click", () => {
   }
 });
 
-// let calc=document.querySelector(".calc")
-// calc.addEventListener("click")
+let darklightMode = document.querySelector(".darklightMode");
+let modeflag = false;
+darklightMode.addEventListener("click", () => {
+  if (modeflag == false) {
+    modeflag = true;
+    document.body.style.cssText = "background:white;";
+    displaybox.style.cssText = "color:black;";
+  } else {
+    modeflag = false;
+    document.body.style.cssText = "background:black;";
+    displaybox.style.cssText = "color:white;";
+  }
+});
 
 let zero = document.querySelector(".zero");
 zero.addEventListener("click", () => {
@@ -245,5 +256,6 @@ isEqualTo.addEventListener("click", () => {
   arg1 = parseInt(args[0]);
   arg2 = parseInt(args[1]);
   operate(arg1, operand, arg2);
+  let store = output;
   displayAfter.innerHTML = output;
 });

@@ -93,3 +93,8 @@ svg {
 .btnYellow {
   background-color: rgb(255, 159, 10);
 }
+
+.darklightMode img{
+height: 16px;
+width: 16px;
+}
