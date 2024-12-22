@@ -359,23 +359,26 @@ let isEqualTo = document.querySelector(".isEqualTo");
 isEqualTo.addEventListener("click", operate);
 
 function operate() {
-  if (output=="") {
-    displaybox.innerHTML="enter an input"
-    displaybox.style.cssText="font-size:40px"
+  if (output == "") {
+    displaybox.innerHTML = "enter an input";
+    displaybox.style.cssText = "font-size:40px";
   } else {
-    acflag = true;
-  ac.innerHTML = "AC";
-  let args = output.split(operand);
-  arg1 = parseFloat(args[0]);
-  arg2 = parseFloat(args[1]);
-  displayAfter.innerHTML = output;
-  calculate(arg1, operand, arg2);
+    // acflag = true;
+    // ac.innerHTML = "AC";
+    // let args = output.split(operand);
+    // arg1 = parseFloat(args[0]);
+    // arg2 = parseFloat(args[1]);
+    // displayAfter.innerHTML = output;
+    // calculate(arg1, operand, arg2);
+    if (num2 == 0) {
+    } else {
+      acflag = true;
+      ac.innerHTML = "AC";
+      let args = output.split(operand);
+      arg1 = parseFloat(args[0]);
+      arg2 = parseFloat(args[1]);
+      displayAfter.innerHTML = output;
+      calculate(arg1, operand, arg2);
+    }
   }
-  // acflag = true;
-  // ac.innerHTML = "AC";
-  // let args = output.split(operand);
-  // arg1 = parseFloat(args[0]);
-  // arg2 = parseFloat(args[1]);
-  // displayAfter.innerHTML = output;
-  // calculate(arg1, operand, arg2);
 }
