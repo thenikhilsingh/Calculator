@@ -107,7 +107,7 @@ modulus.addEventListener("click", () => {
       output[output.length - 1] == "+"
     ) {
       output = output.slice(0, -1);
-      output += "+";
+      output += "%";
       displaybox.innerHTML = output;
       return;
     }
