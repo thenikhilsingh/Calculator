@@ -99,10 +99,19 @@ signAddMin.addEventListener("click", () => {
 let modulus = document.querySelector(".modulus");
 modulus.addEventListener("click", () => {
   if (opflag) {
+    if (
+      output[output.length - 1] == "-" ||
+      output[output.length - 1] == "*" ||
+      output[output.length - 1] == "/" ||
+      output[output.length - 1] == "%" ||
+      output[output.length - 1] == "+"
+    ) {
+      output = output.slice(0, -1);
+      output += "+";
+      displaybox.innerHTML = output;
+      return;
+    }
     operate();
-    acflag = false;
-    operand = "%";
-    output += "%";
     displaybox.innerHTML = output;
   } else {
     opflag = true;
@@ -117,10 +126,20 @@ modulus.addEventListener("click", () => {
 let division = document.querySelector(".division");
 division.addEventListener("click", () => {
   if (opflag) {
-    operate();
     acflag = false;
-    operand = "/";
-    output += "/";
+    if (
+      output[output.length - 1] == "-" ||
+      output[output.length - 1] == "*" ||
+      output[output.length - 1] == "/" ||
+      output[output.length - 1] == "%" ||
+      output[output.length - 1] == "+"
+    ) {
+      output = output.slice(0, -1);
+      output += "/";
+      displaybox.innerHTML = output;
+      return;
+    }
+    operate();
     displaybox.innerHTML = output;
   } else {
     opflag = true;
@@ -162,10 +181,20 @@ nine.addEventListener("click", () => {
 let multiplication = document.querySelector(".multiplication");
 multiplication.addEventListener("click", () => {
   if (opflag) {
-    operate();
     acflag = false;
-    operand = "*";
-    output += "*";
+    if (
+      output[output.length - 1] == "-" ||
+      output[output.length - 1] == "*" ||
+      output[output.length - 1] == "/" ||
+      output[output.length - 1] == "%" ||
+      output[output.length - 1] == "+"
+    ) {
+      output = output.slice(0, -1);
+      output += "*";
+      displaybox.innerHTML = output;
+      return;
+    }
+    operate();
     displaybox.innerHTML = output;
   } else {
     opflag = true;
@@ -207,10 +236,20 @@ six.addEventListener("click", () => {
 let subtraction = document.querySelector(".subtraction");
 subtraction.addEventListener("click", () => {
   if (opflag) {
-    operate();
     acflag = false;
-    operand = "-";
-    output += "-";
+    if (
+      output[output.length - 1] == "-" ||
+      output[output.length - 1] == "*" ||
+      output[output.length - 1] == "/" ||
+      output[output.length - 1] == "%" ||
+      output[output.length - 1] == "+"
+    ) {
+      output = output.slice(0, -1);
+      output += "-";
+      displaybox.innerHTML = output;
+      return;
+    }
+    operate();
     displaybox.innerHTML = output;
   } else {
     opflag = true;
@@ -253,14 +292,6 @@ let addition = document.querySelector(".addition");
 addition.addEventListener("click", () => {
   if (opflag) {
     acflag = false;
-    // operand = "+";
-    // output += "+";
-    // output.replace("+","+")
-    // output.replace("-","+")
-    // output.replace("*","+")
-    // output.replace("/","+")
-    // output.replace("%","+")
-    // operate();
     if (
       output[output.length - 1] == "-" ||
       output[output.length - 1] == "*" ||
