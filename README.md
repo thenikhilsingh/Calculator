@@ -10,7 +10,7 @@ A clean and fully functional **Calculator App** built using **HTML, CSS, and Jav
 
 - HTML5  
 - CSS3  
-- JavaScript (Vanilla)
+- JavaScript
 
 ## ➕ Features
 
